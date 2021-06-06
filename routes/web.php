@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationLoginController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PortalController;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,6 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->midd
 
 // feature
 Route::get('/portal', PortalController::class)->middleware('auth')->name('portal');
+
+// applications login
+Route::post('/applications/{application}/login', ApplicationLoginController::class);
