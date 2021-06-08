@@ -6,6 +6,7 @@ use App\Models\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\URL;
+use Inertia\Inertia;
 
 class PortalController extends Controller
 {
@@ -15,7 +16,7 @@ class PortalController extends Controller
         $query = $url['query'] ?? null;
 
         if (! $query) {
-            return view('auth.portal');
+            return Inertia::render('Portal', ['applications' => Auth::user()->applications]);
         }
 
         if (strpos($query, 'redirectAfterAuthenticated=') === false) {

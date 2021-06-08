@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
+use Inertia\Inertia;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -20,7 +21,8 @@ class AuthenticatedSessionController extends Controller
             Session::put('redirect-to-application', $application);
         }
 
-        return view('auth.login');
+        // return view('auth.login');
+        return Inertia::render('Auth/Login');
     }
 
     public function store(Request $request)
