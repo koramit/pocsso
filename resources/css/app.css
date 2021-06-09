@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+.form-input {
+    @apply w-full mt-2 p-2 border rounded outline-none focus:bg-blue-200
+}
+@tailwind utilities;
